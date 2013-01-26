@@ -2,7 +2,9 @@ $(function(){
 
       var poboxList = []
       chrome.extension.sendRequest({method: "getOptions"}, function(options){
-          poboxList = options.poboxList.split(',');
+          if(options.poboxList){
+            poboxList = options.poboxList.split(',');
+          }
           fillEmailList();
       });
 
