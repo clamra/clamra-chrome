@@ -11,9 +11,8 @@
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "exclude_globs": ["http://flowerpassword.com/app/web*"],
       "css": ["css/content-script.css"],
-      "js": ["js/libs/jquery.js", "js/libs/utils.js", "js/libs/domain.js", "js/chrome/messages.js", "js/chrome/url.js","js/email-tools.js"],
+      "js": ["js/libs/jquery.js", "js/libs/utils.js", "js/libs/domain.js", "js/chrome/url.js","js/email-tools.js"],
       "run_at": "document_end",
       "all_frames": true
     }

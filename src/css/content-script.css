@@ -1,4 +1,4 @@
-#flower-password-iframe {
+#claram-email-iframe {
   margin: 0;
   padding: 0;
   border: 0;
@@ -8,10 +8,10 @@
   z-index: 999999999;
 }
 
-#flower-password-iframe.transparent {
+#claram-email-iframe.transparent {
   opacity: 0.5;
 }
 
-#flower-password-iframe.transparent:hover, #flower-password-iframe.transparent.nontransparent {
+#claram-email-iframe.transparent:hover, #claram-email-iframe.transparent.nontransparent {
   opacity: 1.0;
 }

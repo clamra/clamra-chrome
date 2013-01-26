@@ -42,28 +42,28 @@ if (isTopWindow()) {
         document.showIframe = showIframe = function(bounds) {
             updateCurrentFieldBounds(bounds);
             locateDialog();
-            var iframe = $('#flower-password-iframe');
+            var iframe = $('#claram-email-iframe');
             iframe.width(324);
             iframe.height(88);
-            $('#flower-password-iframe').show();
+            $('#claram-email-iframe').show();
             iframe.show();
             
             
         };
         document.closeIframe = closeIframe= function(focusCurrentField) {
-            if ($('#flower-password-iframe').is(':visible')) {
-                $('#flower-password-iframe').hide();
+            if ($('#claram-email-iframe').is(':visible')) {
+                $('#claram-email-iframe').hide();
                 //messages.page.broadcast('iframeClosed', {focusCurrentField: focusCurrentField});
             }
         };
         focusIframe = function() {
-            if ($('#flower-password-iframe').is(':visible')) {
+            if ($('#claram-email-iframe').is(':visible')) {
                 messages.page.broadcast('focusPassword');
             }
         };
         locateIframe = function(bounds) {
             updateCurrentFieldBounds(bounds);
-            if ($('#flower-password-iframe').is(':visible')) {
+            if ($('#claram-email-iframe').is(':visible')) {
                 locateDialog();
             }
         };
@@ -78,7 +78,7 @@ if (isTopWindow()) {
 
         function calculateDialogOffset() {
             var result;
-            if (current.left - $(document).scrollLeft() + current.width + $('#flower-password-iframe').outerWidth() <= $(window).width()) {
+            if (current.left - $(document).scrollLeft() + current.width + $('#claram-email-iframe').outerWidth() <= $(window).width()) {
                 result = {left: current.left + current.width, top: current.top};
             } else {
                 result = {left: current.left, top: current.top + current.height};
@@ -91,15 +91,15 @@ if (isTopWindow()) {
             if (!offset) {
                 offset = calculateDialogOffset();
             }
-            $('#flower-password-iframe').css({left: offset.left + "px", top: offset.top + "px"});
+            $('#claram-email-iframe').css({left: offset.left + "px", top: offset.top + "px"});
             dialogOffset = offset;
         }
 
         function injectIframe() {
-            if ($('#flower-password-iframe').size() > 0) {
+            if ($('#claram-email-iframe').size() > 0) {
                 return;
             }
-            $('body').append('<iframe id="flower-password-iframe" src="' + getURL('iframe.html') + '" style="display: none;"></iframe>');
+            $('body').append('<iframe id="claram-email-iframe" src="' + getURL('iframe.html') + '" style="display: none;"></iframe>');
 
         }
         $(function(){
@@ -119,7 +119,7 @@ if (isTopWindow()) {
     }
     var inputSelectors = [
           "input[name*=email]",
-          "input[name*=account]"
+          "input[name*=account]",
           "input[name*=mail]",
           "input[id*=account]",
           "input[id*=email]",
