@@ -13,7 +13,7 @@
             console.log(url);
             $.ajax({
                 url : url,
-                method : 'GET',
+                type : 'GET',
                 dataType : 'json',
                 success : function(data){
                     cb(true, data);
@@ -23,12 +23,12 @@
                 }
             });
         },
-        createPobox : function(){
+        createPobox : function(cb){
             var url = CLAMRA_API_ENDPOINT + 'account/' + this.account + '/poboxes/';
             url += '?' + $.param({'api_key' : this.api_key});
             $.ajax({
                 url : url,
-                method : 'POST',
+                type : 'POST',
                 dataType : 'json',
                 success : function(data){
                     cb(true, data);

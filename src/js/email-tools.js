@@ -112,7 +112,7 @@ if (isTopWindow()) {
         console.log("Page message",data);
     }
     console.log(localStorage.getItem("__STORAGE_EMAIL__"));
-    $(document).on('focus.fp', "input[name*=email]",function(){
+    $(document).on('focus.fp', "input[name*=account]",function(){
         var val = $(this).val();
         console.log(this);
         current.field = $(this);
@@ -122,7 +122,7 @@ if (isTopWindow()) {
             });
         showIframe();
     }).on('focusin.fp mousedown.fp', function(e) {
-            if (!$(e.target).is('input[name*=email]')) {
+            if (!$(e.target).is('input[name*=account]')) {
                 //events.onFocusOutPassword.fireEvent();
                 closeIframe();
             }

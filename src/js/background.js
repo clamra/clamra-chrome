@@ -41,4 +41,23 @@ chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
     
 });
 
+chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
+    if (request.method == "createPobox"){
+        if(sendResponse){
+            var email = localStorage.getItem(CONST_STORAGE_EMAIL);
+            var apiKey = localStorage.getItem(CONST_STORAGE_API_KEY);
+            var poboxList = localStorage.getItem(CONST_STORAGE_POBOX_LIST);
+            var apiclient = new ClamraAPI(email, apiKey);
+            apiclient.createPobox(function(success, data){
+                if(success){
+                    poboxList = poboxList + ',' + data['name']
+                    localStorage.setItem(CONST_STORAGE_POBOX_LIST, poboxList);
+                    sendResponse(data['name']);
+                }
+            });
+        }
+    }
+});
+
+
 console.log("back-------");
