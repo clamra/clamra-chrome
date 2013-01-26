@@ -33,7 +33,7 @@ if (isTopWindow()) {
                 var width = current.field.outerWidth();
                 var height = current.field.outerHeight();
                 var offset = current.field.offset();
-                $.extend(current, {left: offset.left, top: offset.top, width: width, height: height});
+                $.extend(current, {left: offset.left+5, top: offset.top, width: width, height: height});
             } else {
                 $.extend(current, {left: bounds.left, top: bounds.top, width: bounds.width, height: bounds.height});
             }
@@ -113,10 +113,7 @@ if (isTopWindow()) {
 
 
 (function(){
-    console.log("...",messages);
-    messages.page.handlers["iframeClosed"] = function(data){
-        console.log("Page message",data);
-    }
+
     var inputSelectors = [
           "input[name*=email]",
           "input[name*=account]",
