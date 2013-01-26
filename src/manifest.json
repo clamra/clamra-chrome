@@ -34,6 +34,7 @@
   "options_page":"options.html",
   "permissions" : [
     "tabs",
+      "http://*/*", "https://*/*",
     "http://*.clamra.com/*",
     "https://*.clamra.com/*"
   ]
