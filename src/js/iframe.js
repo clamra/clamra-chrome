@@ -12,7 +12,9 @@ $(function(){
               $("#emailList").append("<option>" + item + "</option>");
           });
       }
-
+      $("#close").click(function(){
+          window.parent.postMessage({action:"closeIframe"},"*");
+      });
       $("#btnOk").click(function(){
            var email =  $("#emailList").val();
          // console.log(email,window,$('#flower-password-iframe').hide());

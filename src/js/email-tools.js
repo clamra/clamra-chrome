@@ -22,6 +22,9 @@ if (isTopWindow()) {
                     }
                     closeIframe();
                 }
+                if(data.action == "closeIframe") {
+                    closeIframe();
+                }
             }
         });
         function updateCurrentFieldBounds(bounds) {
