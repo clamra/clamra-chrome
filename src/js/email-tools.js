@@ -39,7 +39,7 @@ if (isTopWindow()) {
             updateCurrentFieldBounds(bounds);
             locateDialog();
             var iframe = $('#flower-password-iframe');
-            console.log(iframe.width(324),iframe.height(207));
+            console.log(iframe.width(324),iframe.height(88));
             $('#flower-password-iframe').show();
             
             
