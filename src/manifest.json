@@ -26,11 +26,15 @@
   ],
   "background":{
     "scripts":[
+        "js/libs/jquery.js",
+        "js/core/clamra.js",
         "js/background.js"
         ]
   },
   "options_page":"options.html",
   "permissions" : [
-    "tabs"
+    "tabs",
+    "http://*.clamra.com/*",
+    "https://*.clamra.com/*"
   ]
 }

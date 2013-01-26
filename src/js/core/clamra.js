@@ -9,6 +9,8 @@
     ClamraAPI.prototype = {
         listPobox : function(cb){
             var url = CLAMRA_API_ENDPOINT + 'account/' + this.account + '/poboxes/';
+            url += '?' + $.param({'api_key' : this.api_key});
+            console.log(url);
             $.ajax({
                 url : url,
                 method : 'GET',
@@ -23,6 +25,7 @@
         },
         createPobox : function(){
             var url = CLAMRA_API_ENDPOINT + 'account/' + this.account + '/poboxes/';
+            url += '?' + $.param({'api_key' : this.api_key});
             $.ajax({
                 url : url,
                 method : 'POST',
