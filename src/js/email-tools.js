@@ -15,6 +15,7 @@ if (isTopWindow()) {
         $(window).on('message', function(e) {
 
             if(e.originalEvent && e.originalEvent.data){
+               //console.log("win message",e);
                 var data =  e.originalEvent.data
                 if(data.action == "setEmail"){
                     if(current.field){
@@ -42,8 +43,10 @@ if (isTopWindow()) {
             updateCurrentFieldBounds(bounds);
             locateDialog();
             var iframe = $('#flower-password-iframe');
-            console.log(iframe.width(324),iframe.height(88));
+            iframe.width(324);
+            iframe.height(88);
             $('#flower-password-iframe').show();
+            iframe.show();
             
             
         };
@@ -114,19 +117,34 @@ if (isTopWindow()) {
     messages.page.handlers["iframeClosed"] = function(data){
         console.log("Page message",data);
     }
-    console.log(localStorage.getItem("__STORAGE_EMAIL__"));
-    $(document).on('focus.fp', "input[name*=account]",function(){
-        var val = $(this).val();
-        console.log(this);
-        current.field = $(this);
-        console.log(val);
-          chrome.extension.sendRequest({method: "getOptions"}, function(options){
-                console.log("OPTION:",options);
-            });
-        showIframe();
+    var inputSelectors = [
+          "input[name*=email]",
+          "input[name*=account]"
+    ];
+    $(document).on('focus.fp', "input",function(e){
+
+        for(var i = 0;i<inputSelectors.length;i++){
+            if ($(e.target).is(inputSelectors[i]))  {
+                var val = $(this).val();
+                current.field = $(this);
+
+                showIframe();
+
+            }
+        }
     }).on('focusin.fp mousedown.fp', function(e) {
-            if (!$(e.target).is('input[name*=account]')) {
-                //events.onFocusOutPassword.fireEvent();
+           // console.log("---------  ");
+             var match = false;
+            for(var i = 0;i<inputSelectors.length;i++){
+                if ($(e.target).is(inputSelectors[i]))  {
+                    match = true;
+                    //console.log("match")
+                   // closeIframe();
+                }
+
+
+            }
+            if(!match){
                 closeIframe();
             }
         });

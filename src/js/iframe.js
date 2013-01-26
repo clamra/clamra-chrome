@@ -1,5 +1,4 @@
 $(function(){
-
       var poboxList = []
       chrome.extension.sendRequest({method: "getOptions"}, function(options){
           if(options.poboxList){
