@@ -18,9 +18,6 @@
       "all_frames": true
     }
   ],
-  "page_action": {
-    "default_icon": "img/enabled.png"
-  },
   "web_accessible_resources":[
     "iframe.html"
   ],
