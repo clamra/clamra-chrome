@@ -97,18 +97,20 @@ if (isIframe()) {
 
 (function(){
     console.log("...");
+    console.log(localStorage.getItem("__STORAGE_EMAIL__"));
     $(document).on('focus.fp', "input[name*=email]",function(){
         var val = $(this).val();
         console.log(this);
         current.field = $(this);
         console.log(val);
+          chrome.extension.sendRequest({method: "getOptions"}, function(options){
+                console.log("OPTION:",options);
+            });
         showIframe();
     }).on('focusin.fp mousedown.fp', function(e) {
             if (!$(e.target).is('input[name*=email]')) {
                 //events.onFocusOutPassword.fireEvent();
                 closeIframe();
             }
-            
-            
         });
 })();
