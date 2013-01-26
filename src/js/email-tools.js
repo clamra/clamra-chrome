@@ -9,6 +9,21 @@ var showIframe, closeIframe, focusIframe, locateIframe;
 
 if (isTopWindow()) {
     (function() {
+        /**
+         * iframe 通信
+         */
+        $(window).on('message', function(e) {
+
+            if(e.originalEvent && e.originalEvent.data){
+                var data =  e.originalEvent.data
+                if(data.action == "setEmail"){
+                    if(current.field){
+                        current.field.val(data.email);
+                    }
+                    closeIframe();
+                }
+            }
+        });
         function updateCurrentFieldBounds(bounds) {
             if (isUndefined(bounds)) {
                 var width = current.field.outerWidth();
@@ -90,13 +105,12 @@ if (isTopWindow()) {
 } // endif (isTopWindow())
 
 
-if (isIframe()) {
-   
-} // endif (isIframe())
-
 
 (function(){
-    console.log("...");
+    console.log("...",messages);
+    messages.page.handlers["iframeClosed"] = function(data){
+        console.log("Page message",data);
+    }
     console.log(localStorage.getItem("__STORAGE_EMAIL__"));
     $(document).on('focus.fp', "input[name*=email]",function(){
         var val = $(this).val();

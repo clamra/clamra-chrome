@@ -70,6 +70,7 @@ var messages = {};
     });
 
     $(window).on('message', function(e) {
+
         var data = e.originalEvent.data;
         if (typeof data === 'object' && data.flowerPassword) {
             var handler = messages.page.handlers[data.action];
