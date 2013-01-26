@@ -120,6 +120,12 @@ if (isTopWindow()) {
     var inputSelectors = [
           "input[name*=email]",
           "input[name*=account]"
+          "input[name*=mail]",
+          "input[id*=account]",
+          "input[id*=email]",
+          "input[id*=mail]",
+
+          "input[type=email]"
     ];
     $(document).on('focus.fp', "input",function(e){
 
