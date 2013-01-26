@@ -24,7 +24,11 @@
   "web_accessible_resources":[
     "iframe.html"
   ],
-  "background": "background.html",
+  "background":{
+    "scripts":[
+        "js/background.js"
+        ]
+  },
   "options_page":"options.html",
   "permissions" : [
     "tabs"
