@@ -32,7 +32,7 @@ chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
             sendResponse({
                 email:email,
                 apiKey:apiKey,
-                poboxList: 
+                poboxList: poboxList
             });
         }
         
